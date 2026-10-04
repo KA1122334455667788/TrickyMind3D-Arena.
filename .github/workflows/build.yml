@@ -20,22 +20,19 @@ jobs:
         distribution: 'temurin'
         java-version: '17'
 
-    - name: Create Gradle Wrapper Directory and File First
-      run: |
-        mkdir -p gradle/wrapper
-        echo "distributionBase=GRADLE_USER_HOME" > gradle/wrapper/gradle-wrapper.properties
-        echo "distributionPath=wrapper/dists" >> gradle/wrapper/gradle-wrapper.properties
-        echo "distributionUrl=https\://services.gradle.org/distributions/gradle-8.7-bin.zip" >> gradle/wrapper/gradle-wrapper.properties
-        echo "zipStoreBase=GRADLE_USER_HOME" >> gradle/wrapper/gradle-wrapper.properties
-        echo "zipStorePath=wrapper/dists" >> gradle/wrapper/gradle-wrapper.properties
-
-    - name: Download and Setup Official Gradle 8.7
+    - name: Set up Gradle 8.7 Environment
       uses: gradle/actions/setup-gradle@v3
       with:
         gradle-version: '8.7'
 
-    - name: Build Debug APK Directly
-      run: gradle assembleDebug --no-daemon
+    - name: Generate Official Gradle 8.7 Wrapper
+      run: gradle wrapper --gradle-version=8.7 --distribution-type=bin
+
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+
+    - name: Build Debug APK using Wrapper
+      run: ./gradlew assembleDebug --no-daemon
 
     - name: Upload APK Artifact
       uses: actions/upload-artifact@v4

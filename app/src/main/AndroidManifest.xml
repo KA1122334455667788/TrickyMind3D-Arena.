@@ -10,7 +10,8 @@
         android:theme="@style/Theme.TrickyMind3DArena">
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.TrickyMind3DArena">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

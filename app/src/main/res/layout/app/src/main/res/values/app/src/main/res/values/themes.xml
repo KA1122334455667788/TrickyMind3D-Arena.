@@ -1,0 +1,5 @@
+<resources>
+    <style name="Theme.TrickyMind3DArena" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your theme here -->
+    </style>
+</resources>

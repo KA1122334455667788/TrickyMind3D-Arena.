@@ -20,11 +20,26 @@ jobs:
         distribution: 'temurin'
         java-version: '17'
 
-    - name: Set up Gradle 8.7 Environment
+    - name: Create Gradle Wrapper Directory and File First
+      run: |
+        mkdir -p gradle/wrapper
+        echo "distributionBase=GRADLE_USER_HOME" > gradle/wrapper/gradle-wrapper.properties
+        echo "distributionPath=wrapper/dists" >> gradle/wrapper/gradle-wrapper.properties
+        echo "distributionUrl=https\://services.gradle.org/distributions/gradle-8.7-bin.zip" >> gradle/wrapper/gradle-wrapper.properties
+        echo "zipStoreBase=GRADLE_USER_HOME" >> gradle/wrapper/gradle-wrapper.properties
+        echo "zipStorePath=wrapper/dists" >> gradle/wrapper/gradle-wrapper.properties
+
+    - name: Download and Setup Official Gradle 8.7
       uses: gradle/actions/setup-gradle@v3
       with:
         gradle-version: '8.7'
-        cache-read-only: false
 
-    - name: Build Debug APK with Stacktrace
-      run: gradle assembleDebug --stacktrace --no-daemon
+    - name: Build Debug APK Directly
+      run: gradle assembleDebug --no-daemon
+
+    - name: Upload APK Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: trickymind3d-debug-apk
+        path: app/build/outputs/apk/debug/app-debug.apk
+        

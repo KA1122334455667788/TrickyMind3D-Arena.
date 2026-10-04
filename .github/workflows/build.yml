@@ -33,4 +33,5 @@ jobs:
       with:
         name: trickymind3d-debug-apk
         path: app/build/outputs/apk/debug/app-debug.apk
+
         

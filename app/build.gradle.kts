@@ -64,6 +64,7 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
+implementation("androidx.constraintlayout:constraintlayout:2.1.4")
 
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)

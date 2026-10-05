@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme -->
-    <style name="Theme.TrickyMind3DArena" parent="android:Theme.Material.Light.NoActionBar">
+    <style name="Theme.TrickyMind3DArena" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your theme here -->
     </style>
 </resources>

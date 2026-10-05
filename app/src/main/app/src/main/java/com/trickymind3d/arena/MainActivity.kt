@@ -24,7 +24,7 @@ class MainActivity : ComponentActivity() {
                         modifier = Modifier.fillMaxSize(),
                         contentAlignment = Alignment.Center
                     ) {
-                        Text(text = "TrickyMind3D Arena Ready!")
+                        Text(text = "TrickyMind3D Arena Working!")
                     }
                 }
             }
